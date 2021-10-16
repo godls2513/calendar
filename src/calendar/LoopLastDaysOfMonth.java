@@ -9,22 +9,22 @@ public class LoopLastDaysOfMonth {
 		return LAST_DAYS[month -1];
 	}
 	public static void main(String[] args) {
+		
+		String PROMPT = "> ";
 		Scanner sc = new Scanner(System.in);
 		LoopLastDaysOfMonth ldom = new LoopLastDaysOfMonth();
-		System.out.println("반복 횟수를 입력하세요: ");
-		int loop = sc.nextInt();
-		System.out.println("달을 입력하세요 : ");
-//		for(int i=0; i<loop; i++) {
-//			
-//			int month = sc.nextInt();
-//			
-//			System.out.printf("%d월은 %d일까지 있습니다. \n", month, ldom.getLastDaysOfMonth(month) );
-//		}
-		
-		int i = 0;
-		while(i < loop) {
-			i++;
-			int month = sc.nextInt();
+		int month = 1;
+		while(true) {
+			System.out.println("달을 입력하세요 : ");
+			System.out.print(PROMPT);
+			month = sc.nextInt();
+			if(month == -1) {
+				System.out.println("Have a good day");
+				break;
+			}
+			if(month > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다. \n", month, ldom.getLastDaysOfMonth(month) );
 		}
 		sc.close();
